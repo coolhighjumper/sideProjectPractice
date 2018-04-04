@@ -1,0 +1,28 @@
+# cd dockerForFlask
+# docker-compose up -d
+# docker-compose down
+
+version: "3"
+ 
+services:
+    flask:
+      container_name: flaskApp
+      image: coolhighjumper/flask
+      ports:
+        - "5000:5000"
+      networks:
+        - test-network
+        
+    web:
+      container_name: WebServer
+      image: httpd
+      ports:
+      - "80:80"
+      volumes: 
+      -  "./bdse:/usr/local/apache2/htdocs/"
+      networks:
+        - test-network
+      
+networks:
+    test-network:
+      driver: bridge
