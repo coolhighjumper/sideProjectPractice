@@ -8,3 +8,6 @@ cp -r .vim $HOME
 
 source $HOME/.zshrc
 vim +PluginInstall +qall
+
+git clone https://github.com/powerline/fonts.git
+./fonts/install.sh
